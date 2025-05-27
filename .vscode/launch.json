@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-FaremcoApplication<faremco>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.faremco.app.FaremcoApplication",
+            "projectName": "faremco",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
