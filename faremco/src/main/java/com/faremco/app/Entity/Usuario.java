@@ -14,16 +14,16 @@ public class Usuario {
     private Rol idrol;
 
     private String usuario;
-    private String pasword;
+    private String password;
     private String nombre_completo;
     private boolean activo;
     private LocalDateTime creado_en;
 
     public Usuario() {}
-    public Usuario(Rol idrol, String usuario, String pasword, String nombre_completo, boolean activo, LocalDateTime creado_en) {
+    public Usuario(Rol idrol, String usuario, String password, String nombre_completo, boolean activo, LocalDateTime creado_en) {
         this.idrol = idrol;
         this.usuario = usuario;
-        this.pasword = pasword;
+        this.password = password;
         this.nombre_completo = nombre_completo;
         this.activo = activo;
         this.creado_en = creado_en;
@@ -37,8 +37,8 @@ public class Usuario {
     public String getUsuario() { return usuario; }
     public void setUsuario(String usuario) { this.usuario = usuario; }
 
-    public String getPasword() { return pasword; }
-    public void setPasword(String pasword) { this.pasword = pasword; }
+    public String getPasword() { return password; }
+    public void setPasword(String password) { this.password = password; }
 
     public String getNombre_completo() { return nombre_completo; }
     public void setNombre_completo(String nombre_completo) { this.nombre_completo = nombre_completo; }

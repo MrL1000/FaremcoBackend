@@ -1,6 +1,8 @@
 package com.faremco.app.Entity;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,48 +13,45 @@ public class Pagos {
     private Long idpag;
 
     @ManyToOne
-    @JoinColumn(name = "idres")
-    private Reserva idres;
-
-    @ManyToOne
     @JoinColumn(name = "idusuario")
-    private Usuario idusuario;
+    private Usuario usuario;
 
-    private Double monto;
-    private String metodo;
+    private BigDecimal monto_total;
     private LocalDateTime pagadoEn;
     private String numeroComprobante;
 
-    public Pagos() {}
+    @Enumerated(EnumType.STRING)
+    private EstadoPago estado;
 
-    public Pagos(Reserva idres, Usuario idusuario, Double monto, String metodo, LocalDateTime pagadoEn, String numeroComprobante) {
-        this.idres = idres;
-        this.idusuario = idusuario;
-        this.monto = monto;
-        this.metodo = metodo;
+    public enum EstadoPago {
+        Pendiente, Parcial, Completo
+    }
+
+    public Pagos() {}
+    public Pagos(Usuario usuario, BigDecimal monto_total, LocalDateTime pagadoEn, String numeroComprobante, EstadoPago estado) {
+        this.usuario = usuario;
+        this.monto_total = monto_total;
         this.pagadoEn = pagadoEn;
         this.numeroComprobante = numeroComprobante;
+        this.estado = estado;
     }
 
     public Long getId() { return idpag; }
     public void setId(Long idpag) { this.idpag = idpag; }
 
-    public Reserva getReserva() { return idres; }
-    public void setReserva(Reserva idres) { this.idres = idres; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 
-    public Usuario getRecibidoPor() { return idusuario; }
-    public void setRecibidoPor(Usuario idusuario) { this.idusuario = idusuario; }
-
-    public Double getMonto() { return monto; }
-    public void setMonto(Double monto) { this.monto = monto; }
-
-    public String getMetodo() { return metodo; }
-    public void setMetodo(String metodo) { this.metodo = metodo; }
+    public BigDecimal getMonto_total() { return monto_total; }
+    public void setMonto_total(BigDecimal monto_total) { this.monto_total = monto_total; }
 
     public LocalDateTime getPagadoEn() { return pagadoEn; }
     public void setPagadoEn(LocalDateTime pagadoEn) { this.pagadoEn = pagadoEn; }
 
     public String getNumeroComprobante() { return numeroComprobante; }
     public void setNumeroComprobante(String numeroComprobante) { this.numeroComprobante = numeroComprobante; }
+
+    public EstadoPago getEstado() { return estado; }
+    public void setEstado(EstadoPago estado) { this.estado = estado; }
 
 }
