@@ -1,5 +1,7 @@
 package com.faremco.app.Interface;
+import org.springframework.data.repository.CrudRepository;
+import com.faremco.app.Entity.Pagos;
 
-public class IPagos {
+public interface IPagos extends CrudRepository<Pagos, Long> {
     
 }

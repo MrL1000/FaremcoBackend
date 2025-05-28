@@ -1,5 +1,7 @@
 package com.faremco.app.Interface;
+import org.springframework.data.repository.CrudRepository;
+import com.faremco.app.Entity.Rol;
 
-public class IRol {
+public interface IRol extends CrudRepository<Rol, Long> {
     
 }

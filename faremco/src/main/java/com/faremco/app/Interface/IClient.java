@@ -1,5 +1,6 @@
 package com.faremco.app.Interface;
+import org.springframework.data.repository.CrudRepository;
+import com.faremco.app.Entity.Client;
 
-public class IClient {
-    
-}
+public interface IClient extends CrudRepository<Client, Long>{
+}   

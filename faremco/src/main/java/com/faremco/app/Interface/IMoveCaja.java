@@ -1,5 +1,7 @@
 package com.faremco.app.Interface;
+import org.springframework.data.repository.CrudRepository;
+import com.faremco.app.Entity.Move_caja;
 
-public class IMoveCaja {
-    
+public interface IMoveCaja extends CrudRepository<Move_caja, Long> {
+
 }
