@@ -18,14 +18,24 @@ public class Reserva {
     @JoinColumn(name = "idusuario", nullable = false)
     private Usuario idusuario;
 
-    private String estado;
+    @ManyToMany
+    @JoinColumn(name = "idhab")
+    private Habitaciones idhab;
+
+    @Enumerated(EnumType.STRING)
+    private EstadoReserva estado;
+
     private LocalDateTime creadoEn;
     private LocalDateTime fechaEntrada;
     private LocalDateTime fechaSalida;
 
+    public enum EstadoReserva {
+        Reservada, Modificada, Cancelada, CheckIn, CheckOut
+    }
+
     public Reserva() {}
 
-    public Reserva(Client idcli, Usuario idusuario, String estado, LocalDateTime creadoEn, LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
+    public Reserva(Client idcli, Usuario idusuario, EstadoReserva estado, LocalDateTime creadoEn, LocalDateTime fechaEntrada, LocalDateTime fechaSalida) {
         this.idcli = idcli;
         this.idusuario = idusuario;
         this.estado = estado;
@@ -43,8 +53,8 @@ public class Reserva {
     public Usuario getCreadoPor() { return idusuario; }
     public void setCreadoPor(Usuario idusuario) { this.idusuario = idusuario; }
 
-    public String getEstado() { return estado; }
-    public void setEstado(String estado) { this.estado = estado; }
+    public EstadoReserva getEstado() { return estado; }
+    public void setEstado(EstadoReserva estado) { this.estado = estado; }
 
     public LocalDateTime getCreadoEn() { return creadoEn; }
     public void setCreadoEn(LocalDateTime creadoEn) { this.creadoEn = creadoEn; }

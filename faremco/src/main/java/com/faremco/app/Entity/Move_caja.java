@@ -15,14 +15,20 @@ public class Move_caja {
     @JoinColumn(name = "idusuario", nullable = false)
     private Usuario idusuario;
 
-    private String tipo;
+    @Enumerated(EnumType.STRING)
+    private TipoMovimiento tipo;
+
     private BigDecimal monto;
     private String descripcion;
     private LocalDateTime registrado_en;
 
+    public enum TipoMovimiento {
+        Ingreso, Egreso
+    }
+
     public Move_caja() {}
 
-    public Move_caja(Usuario idusuario, String tipo, BigDecimal monto, String descripcion, LocalDateTime registrado_en) {
+    public Move_caja(Usuario idusuario, TipoMovimiento tipo, BigDecimal monto, String descripcion, LocalDateTime registrado_en) {
         this.idusuario = idusuario;
         this.tipo = tipo;
         this.monto = monto;
@@ -36,8 +42,8 @@ public class Move_caja {
     public Usuario getUsuario() { return idusuario; }
     public void setUsuario(Usuario idusuario) { this.idusuario = idusuario; }
 
-    public String getTipo() { return tipo; }
-    public void setTipo(String tipo) { this.tipo = tipo; }
+    public TipoMovimiento getTipo() { return tipo; }
+    public void setTipo(TipoMovimiento tipo) { this.tipo = tipo; }
 
     public BigDecimal getMonto() { return monto; }
     public void setMonto(BigDecimal monto) { this.monto = monto; }

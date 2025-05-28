@@ -8,11 +8,11 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idpro;
     private String nombre;
-    private String precio;
-    private String stock;
+    private Double precio;
+    private int stock;
 
     public Producto() {}
-    public Producto(String nombre, String precio, String stock) {
+    public Producto(String nombre, Double precio, int stock) {
         this.nombre = nombre;
         this.precio = precio;
         this.stock = stock;
@@ -24,10 +24,10 @@ public class Producto {
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
 
-    public String getPrecio() { return precio; }
-    public void setPrecio(String precio) { this.precio = precio; }
+    public Double getPrecio() { return precio; }
+    public void setPrecio(Double precio) { this.precio = precio; }
 
-    public String getStock() { return stock; }
-    public void setStock(String stock) { this.stock = stock;}
+    public int getStock() { return stock; }
+    public void setStock(int stock) { this.stock = stock;}
     
 }
